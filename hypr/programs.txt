@@ -1,0 +1,4 @@
+wireplumber
+pipewire
+playerctl
+brightnessctl
