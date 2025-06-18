@@ -195,8 +195,8 @@ mkinitcpio -P
 log "Configurando ZRAM..."
 cat > /etc/systemd/zram-generator.conf <<ZRAM
 [zram0]
-zram-size = ram
-compression-algorithm = zstd
+zram-size = min(ram, 8192) + max(ram / 4, 2048)
+compression-algorithm = lz4 zstd (threshold=3000)
 ZRAM
 
 log "Instalando yay e habilitando AUR..."
