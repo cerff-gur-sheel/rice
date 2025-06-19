@@ -82,7 +82,9 @@ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware grub efiboot
   hyprlock kitty nerd-fonts gnome-themes-extra wireplumber pipewire-alsa playerctl brightnessctl wl-clipboard jq 
 
 genfstab -U /mnt >> /mnt/etc/fstab
- 
+echo "[INFO] fstab content:"
+cat /mnt/etc/fstab
+
 arch-chroot /mnt /bin/bash <<ARCHROOT
 set -e
 echo "[INFO] Setting timezone..."
@@ -190,6 +192,12 @@ echo "[INFO] Installing yay and enabling AUR..."
   '
 )
 
+echo "[INFO] Generating initramfs..."
+(
+  pacman -Sy --noconfirm linux linux-firmware
+  mkinitcpio -P
+) 
+
 echo "[INFO] Installing displaylink via yay..."
 (
   runuser -u "$username" -- yay -S --noconfirm evdi displaylink
@@ -226,23 +234,8 @@ echo "[INFO] Removing temporary sudoers file for $username..."
   rm -f /etc/sudoers.d/$username
 }
 
-echo "[INFO] Generating initramfs..."
-(
-  pacman -Sy --noconfirm linux linux-firmware
-  mkinitcpio -P
-) 
+mkinitcpio -P
 
 echo "[INFO] Configuration completed successfully. You can reboot now."
 exit
 ARCHROOT
-if [ "$reboot" == "true" ]; then
-  echo "[INFO] Rebooting system..."
-  umount -R /mnt
-  sleep 2
-  systemctl reboot
-  echo "[INFO] System rebooted."
-  exit 0
-  reboot
-else
-  echo "[INFO] Configuration completed. You can now exit the chroot environment."
-fi
