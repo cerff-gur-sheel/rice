@@ -81,7 +81,7 @@ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware grub efiboot
   fish neovim sudo git btrfs-progs mesa hyprland hyprpaper hyprpicker hyprutils hypridle \
   hyprlock kitty nerd-fonts gnome-themes-extra wireplumber pipewire-alsa playerctl brightnessctl wl-clipboard jq \
   gnome-keyring libsecret swaync noto-fonts wofi waybar lib32-vulkan-intel vulkan-intel telegram-desktop fastfetch \
-  steam ghostscript ffmpeg imagemagick lf 
+  steam ghostscript ffmpeg imagemagick lf broot
 
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "[INFO] fstab content:"
