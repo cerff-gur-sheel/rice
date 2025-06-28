@@ -24,6 +24,8 @@ rm -rf \
   "$HOME/.profile" \
   "$HOME/.gitconfig" \
   "$HOME/.gtkrc-2.0" \
+  "$HOME/.config/wofi" \
+  "$HOME/.config/waybar" \
   "$HOME/.config/fish" \
   "$HOME/.config/gtk-3.0" \
   "$HOME/.config/hypr" \
@@ -43,7 +45,8 @@ ln -sf "$RICE_DIR/.bash_logout" "$HOME/.bash_logout"
 ln -sf "$RICE_DIR/.profile" "$HOME/.profile"
 ln -sf "$RICE_DIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$RICE_DIR/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
-
+ln -sf "$RICE_DIR/wofi" "$HOME/.config/wofi"
+ln -sf "$RICE_DIR/waybar" "$HOME/waybar"
 ln -sf "$RICE_DIR/fish" "$HOME/.config/fish"
 ln -sf "$RICE_DIR/gtk-3.0" "$HOME/.config/gtk-3.0"
 ln -sf "$RICE_DIR/hypr" "$HOME/.config/hypr"
