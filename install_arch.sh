@@ -79,7 +79,9 @@ echo "Starting installation process..."
 
 pacstrap -K /mnt base base-devel linux linux-headers linux-firmware grub efibootmgr os-prober zram-generator networkmanager ly \
   fish neovim sudo git btrfs-progs mesa hyprland hyprpaper hyprpicker hyprutils hypridle \
-  hyprlock kitty nerd-fonts gnome-themes-extra wireplumber pipewire-alsa playerctl brightnessctl wl-clipboard jq 
+  hyprlock kitty nerd-fonts gnome-themes-extra wireplumber pipewire-alsa playerctl brightnessctl wl-clipboard jq \
+  gnome-keyring libsecret swaync noto-fonts wofi waybar lib32-vulkan-intel vulkan-intel telegram-desktop fastfetch \
+  steam ghostscript ffmpeg imagemagick lf 
 
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "[INFO] fstab content:"
@@ -194,13 +196,13 @@ echo "[INFO] Installing yay and enabling AUR..."
 
 echo "[INFO] Generating initramfs..."
 (
-  pacman -Sy --noconfirm linux linux-firmware
+  pacman -Sy --noconfirm linux linux-firmware nerd-fonts
   mkinitcpio -P
 ) 
 
 echo "[INFO] Installing displaylink via yay..."
 (
-  runuser -u "$username" -- yay -S --noconfirm evdi displaylink
+  runuser -u "$username" -- yay -S --noconfirm evdi displaylink zen-browser-bin unityhub vesktop-bin visual-studio-code-bin
 )
 
 echo "[INFO] Enabling essential services..."
