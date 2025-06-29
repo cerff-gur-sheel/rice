@@ -77,11 +77,15 @@ echo "Hostname: $hostname"
 echo "Username: $username"
 echo "Starting installation process..."
 
+  
 pacstrap -K /mnt base base-devel linux linux-headers linux-firmware grub efibootmgr os-prober zram-generator networkmanager ly \
-  fish neovim sudo git btrfs-progs mesa hyprland hyprpaper hyprpicker hyprutils hypridle \
-  hyprlock kitty nerd-fonts gnome-themes-extra wireplumber pipewire-alsa playerctl brightnessctl wl-clipboard jq \
+  fish neovim sudo git btrfs-progs mesa hyprland hyprpaper hyprpicker hyprutils hypridle hyprlock kitty nerd-fonts \ 
+  gnome-themes-extra wireplumber pipewire pipewire-pulse pipewire-alsa pavucontrol playerctl brightnessctl wl-clipboard jq \ 
   gnome-keyring libsecret swaync noto-fonts wofi waybar lib32-vulkan-intel vulkan-intel telegram-desktop fastfetch \
-  steam ghostscript ffmpeg imagemagick lf broot
+  steam ghostscript ffmpeg imagemagick lf broot \ 
+  openvpn wireguard-tools systemd-resolvconf proton-vpn-gtk-app network-manager-applet \
+  thunderbird broot 
+  
 
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "[INFO] fstab content:"
@@ -200,9 +204,9 @@ echo "[INFO] Generating initramfs..."
   mkinitcpio -P
 ) 
 
-echo "[INFO] Installing displaylink via yay..."
+echo "[INFO] Installing displaylink and others packages from yay..."
 (
-  runuser -u "$username" -- yay -S --noconfirm evdi displaylink zen-browser-bin unityhub vesktop-bin visual-studio-code-bin
+  runuser -u "$username" -- yay -S --noconfirm evdi displaylink zen-browser-bin unityhub vesktop-bin visual-studio-code-bin grimblast zen-browser-bin
 )
 
 echo "[INFO] Enabling essential services..."
@@ -211,6 +215,15 @@ echo "[INFO] Enabling essential services..."
   systemctl enable ly
   systemctl enable displaylink.service
 )
+
+echo "[INFO] Enabling user systemctl services"
+(
+  runuser -u "$username" -- bash -c '
+    systemctl --user enable pipewire
+    systemctl --user enable pipewire-pulse
+  '
+)
+
 
 echo "[INFO] Setting up rice..."
 (
