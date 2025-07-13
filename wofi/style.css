@@ -1,113 +1,43 @@
 window {
-    font-size: 15px;
-    font-family: "Roboto Medium";
-    background-color: rgba(0,0,0,0.7);
+	font-size: 12px;
+	font-weight: 500;
+	font-family: "Roboto Medium";
+	background-color: black;
+
 }
 
-#entry{
-    margin: 5px 5px;
-    padding-left: 30px;
+#outer-box {
+
+	padding-bottom: 10px;
+}
+
+#entry {
+	background-color: black;
 }
 
 #entry:selected {
-    /* background-color: rgba(187,204,221,0.5); */
-    background: linear-gradient(45deg, rgba(144,205,250,0.7) 0%, rgba(182,155,241,0.7) 60%);
-    color: #333333;
-    border-radius: 10px;
+	margin: 0 10px 0 10px;
+	background: linear-gradient(45deg, #5FD1FA 0%, #E7A1F1 60%);
 }
 
-#expander-box {
-    background: transparent;
-    color: #333333;
+#input {
+	background-color: black;
+	border-radius: 0;
+	font-size: 15px;
+	font-weight: 500;
+	color: grey;
+	border: none;
+	box-shadow: none;
+}
+
+#input:focus {
+	color: #fff;
+}
+
+#img {
+	padding-right: 10px;
 }
 
 #text:selected {
-    color: #333333;
-}
-
-#input{
-    background-color: rgba(200,200,200,0.3);
-    border-radius: 0px;
-    font-size: 20px;
-    font-weight: 500;
-    color: grey;
-    padding: 5px;
-    box-shadow: none; 
-    border: none;
-}
-
-#input:focus{
-    color: rgb(200,200,200);
-}
-
-#img{
-    padding-right:10px;
-}
-
-#outer-box{
-    box-shadow: none;
-    border-radius: 0px;
-    padding-bottom: 15px;
-    transition: 0.5s ease-in-out;
-}
-
-window {
-    font-size: 15px;
-    font-family: "Roboto Medium";
-    background-color: rgba(0,0,0,0.7);
-}
-
-
-#entry{
-    margin: 5px 5px;
-    padding-left: 30px;
-}
-
-
-#entry:selected {
-    /* background-color: rgba(187,204,221,0.5); */
-    background: linear-gradient(45deg, rgba(144,205,250,0.7) 0%, rgba(182,155,241,0.7) 60%);
-    color: #333333;
-    border-radius: 10px;
-}
-
-
-#expander-box {
-    background: transparent;
-    color: #333333;
-}
-
-
-#text:selected {
-    color: #333333;
-}
-
-
-#input{
-    background-color: rgba(200,200,200,0.3);
-    border-radius: 0px;
-    font-size: 20px;
-    font-weight: 500;
-    color: grey;
-    padding: 5px;
-    box-shadow: none; 
-    border: none;
-}
-
-
-#input:focus{
-    color: rgb(200,200,200);
-}
-
-
-#img{
-    padding-right:10px;
-}
-
-
-#outer-box{
-    box-shadow: none;
-    border-radius: 0px;
-    padding-bottom: 15px;
-    transition: 0.5s ease-in-out;
+	color: #333333;
 }
