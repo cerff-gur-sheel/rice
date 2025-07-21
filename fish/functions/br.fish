@@ -1,1 +1,0 @@
-/home/cerff_gur_sheel/.local/share/broot/launcher/fish/br.fish
