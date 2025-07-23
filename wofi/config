@@ -1,7 +1,6 @@
 location=top
 layer=top
 width=100%
-lines=15
 filter_rate=2
 dynamic_lines=true
 
