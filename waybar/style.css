@@ -1,13 +1,13 @@
 * {
     border: none;
-    font-size: 12px;
+    font-size: 10px;
     font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
-    min-height: 25px;
+    min-height: 15px;
 }
 
 window#waybar {
-  background: transparent;
-  margin: 5px;
+  background: black;
+  margin: 0px;
  }
 
 #custom-logo {
