@@ -1,4 +1,10 @@
 #!/bin/bash
+# that script imports this rice config to ~/.config/rice and systemlink it
+# !!!!!ATENTION: Executing that you may DELETE FILES from your dotconfig!
+# This scrip is just to installation
+# TODO: Add the new config folders
+# Auto Update/Install nescessary apps
+# Set up hyprshell
 set -e
 echo "[INFO] Setting up rice environment..."
 
@@ -11,6 +17,8 @@ if [ ! -d "$RICE_DIR" ]; then
   git clone "$RICE_REPO" "$RICE_DIR"
 else
   echo "	[INFO] Rice directory already exists. Skipping clone."
+  cd $RICE_DIR
+  git pull
 fi
 
 echo "[INFO] Removing existing config files and directories..."
@@ -18,17 +26,17 @@ rm -rf \
   "$HOME/.config/wofi" \
   "$HOME/.config/waybar" \
   "$HOME/.config/hypr" \
-  "$HOME/.config/kitty"\
-	"$HOME/.profile"\
-	"$HOME/.config/fish/config.fish"\
-	"$HOME/.config/gtk-3.0"\
-	"$HOME/.config/gtk-4.0"\
-	"$HOME/.gtkrc-2.0"\
-	"$HOME/.icons"\
-	"$HOME/.config/qt5ct"\
-	"$HOME/.config/qt6ct"\
-	"$HOME/.config/nwg-look" \
-	"$HOME/.config/btop"
+  "$HOME/.config/kitty" \
+  "$HOME/.profile" \
+  "$HOME/.config/fish/config.fish" \
+  "$HOME/.config/gtk-3.0" \
+  "$HOME/.config/gtk-4.0" \
+  "$HOME/.gtkrc-2.0" \
+  "$HOME/.icons" \
+  "$HOME/.config/qt5ct" \
+  "$HOME/.config/qt6ct" \
+  "$HOME/.config/nwg-look" \
+  "$HOME/.config/btop"
 
 echo "[INFO] Creating symbolic links..."
 ln -sf "$RICE_DIR/wofi" "$HOME/.config/wofi"
@@ -39,11 +47,11 @@ ln -sf "$RICE_DIR/home/.profile" "$HOME/.profile"
 ln -sf "$RICE_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
 ln -sf "$RICE_DIR/theming/gtk-3.0" "$HOME/.config/gtk-3.0"
 ln -sf "$RICE_DIR/theming/gtk-4.0" "$HOME/.config/gtk-4.0"
-ln -sf "$RICE_DIR/theming/.gtkrc-2.0" "$HOME/.gtkrc-2.0" 
-ln -sf "$RICE_DIR/theming/.icons" "$HOME/.icons" 
-ln -sf "$RICE_DIR/theming/qt5ct" "$HOME/.config/qt5ct" 
-ln -sf "$RICE_DIR/theming/qt6ct" "$HOME/.config/qt6ct" 
-ln -sf "$RICE_DIR/theming/nwg-look" "$HOME/.config/nwg-look" 
-ln -sf "$RICE_DIR/btop" "$HOME/.config/btop" 
+ln -sf "$RICE_DIR/theming/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
+ln -sf "$RICE_DIR/theming/.icons" "$HOME/.icons"
+ln -sf "$RICE_DIR/theming/qt5ct" "$HOME/.config/qt5ct"
+ln -sf "$RICE_DIR/theming/qt6ct" "$HOME/.config/qt6ct"
+ln -sf "$RICE_DIR/theming/nwg-look" "$HOME/.config/nwg-look"
+ln -sf "$RICE_DIR/btop" "$HOME/.config/btop"
 
 echo "[INFO] Rice environment setup completed successfully."
