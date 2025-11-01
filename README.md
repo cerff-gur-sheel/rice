@@ -1,7 +1,6 @@
+# 🖥️ Rice Config
 
-
-
-My personal rice se# 🖥️ Rice Config - Press Archconf Editiontup for Arch Linux, focused on aesthetics, productivity, and modularity. Each component of the system is configured with attention to detail and separated into specific folders for easy maintenance and customization.
+My personal rice setup for Arch Linux, focused on aesthetics, productivity, and modularity. Each component of the system is configured with attention to detail and separated into specific folders for easy maintenance and customization.
 
 ![Print from neofetch](./documentation/main_print.jpg)
 
